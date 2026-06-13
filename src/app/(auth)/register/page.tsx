@@ -7,40 +7,43 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Lock, Mail } from 'lucide-react';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
+import { Lock, Mail, User, ShieldCheck } from 'lucide-react';
 import { useToast } from '@/hooks/use-toast';
 
-export default function LoginPage() {
+export default function RegisterPage() {
+  const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [role, setRole] = useState<'customer' | 'employee'>('customer');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleRegister = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      const response = await fetch('/api/auth/login', {
+      const response = await fetch('/api/auth/register', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ email, password }),
+        body: JSON.stringify({ name, email, password, role }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.message || 'Login failed');
+        throw new Error(data.message || 'Registration failed');
       }
 
       toast({
-        title: "Welcome back!",
-        description: "Login successful. Redirecting...",
+        title: "Account created!",
+        description: "Welcome to LedgeTrack. Redirecting you now...",
       });
 
       // Redirect based on role
-      if (data.user.role === 'employee') {
+      if (role === 'employee') {
         router.push('/employee/dashboard');
       } else {
         router.push('/customer/dashboard');
@@ -48,7 +51,7 @@ export default function LoginPage() {
     } catch (error: any) {
       toast({
         variant: "destructive",
-        title: "Login Error",
+        title: "Registration Error",
         description: error.message,
       });
     } finally {
@@ -65,11 +68,26 @@ export default function LoginPage() {
               L
             </div>
           </div>
-          <CardTitle className="text-2xl font-headline tracking-tight">Welcome to LedgeTrack</CardTitle>
-          <CardDescription>Enter your credentials to access your account</CardDescription>
+          <CardTitle className="text-2xl font-headline tracking-tight">Create Account</CardTitle>
+          <CardDescription>Join LedgeTrack to manage your loans with ease</CardDescription>
         </CardHeader>
         <CardContent>
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleRegister} className="space-y-4">
+            <div className="space-y-2">
+              <Label htmlFor="name">Full Name</Label>
+              <div className="relative">
+                <User className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
+                <Input
+                  id="name"
+                  placeholder="John Doe"
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  className="pl-10"
+                  required
+                />
+              </div>
+            </div>
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
               <div className="relative">
@@ -86,17 +104,13 @@ export default function LoginPage() {
               </div>
             </div>
             <div className="space-y-2">
-              <div className="flex items-center justify-between">
-                <Label htmlFor="password">Password</Label>
-                <button type="button" className="text-xs text-accent hover:underline font-medium">
-                  Forgot password?
-                </button>
-              </div>
+              <Label htmlFor="password">Password</Label>
               <div className="relative">
                 <Lock className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
                 <Input
                   id="password"
                   type="password"
+                  placeholder="••••••••"
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
                   className="pl-10"
@@ -104,13 +118,25 @@ export default function LoginPage() {
                 />
               </div>
             </div>
+            <div className="space-y-2">
+              <Label htmlFor="role">I am a...</Label>
+              <Select onValueChange={(value: any) => setRole(value)} defaultValue="customer">
+                <SelectTrigger className="w-full">
+                  <SelectValue placeholder="Select your role" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="customer">Customer</SelectItem>
+                  <SelectItem value="employee">Employee / Admin</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
             <Button type="submit" className="w-full font-semibold" size="lg" disabled={loading}>
-              {loading ? "Signing in..." : "Sign In"}
+              {loading ? "Creating account..." : "Register Now"}
             </Button>
             <div className="text-center text-sm text-muted-foreground">
-              Don&apos;t have an account?{" "}
-              <a href="/register" className="text-accent hover:underline font-medium">
-                Create one
+              Already have an account?{" "}
+              <a href="/login" className="text-accent hover:underline font-medium">
+                Sign In
               </a>
             </div>
           </form>
