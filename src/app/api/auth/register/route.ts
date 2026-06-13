@@ -30,8 +30,8 @@ export async function POST(request: Request) {
       employeeRole: role === 'employee' ? 'employee' : undefined,
     });
 
-    const token = signToken({
-      userId: newUser._id,
+    const token = await signToken({
+      userId: newUser._id.toString(),
       email: newUser.email,
       role: newUser.role,
     });

@@ -1,13 +1,21 @@
+
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
 import { verifyToken } from '@/lib/jwt';
 
-export function middleware(request: NextRequest) {
+export async function middleware(request: NextRequest) {
   const token = request.cookies.get('token')?.value;
   const { pathname } = request.nextUrl;
 
   // Public paths
-  if (pathname.startsWith('/api/auth') || pathname.startsWith('/login') || pathname.startsWith('/register') || pathname === '/') {
+  if (
+    pathname.startsWith('/api/auth') || 
+    pathname.startsWith('/login') || 
+    pathname.startsWith('/register') || 
+    pathname === '/' ||
+    pathname.startsWith('/_next') ||
+    pathname === '/favicon.ico'
+  ) {
     return NextResponse.next();
   }
 
@@ -15,9 +23,11 @@ export function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL('/login', request.url));
   }
 
-  const decoded = verifyToken(token) as any;
+  const decoded = await verifyToken(token) as any;
   if (!decoded) {
-    return NextResponse.redirect(new URL('/login', request.url));
+    const response = NextResponse.redirect(new URL('/login', request.url));
+    response.cookies.delete('token');
+    return response;
   }
 
   // Customer routes
@@ -34,5 +44,10 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ['/customer/:path*', '/employee/:path*', '/api/customer/:path*', '/api/employee/:path*'],
+  matcher: [
+    '/customer/:path*', 
+    '/employee/:path*', 
+    '/api/customer/:path*', 
+    '/api/employee/:path*'
+  ],
 };
