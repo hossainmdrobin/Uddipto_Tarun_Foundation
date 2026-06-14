@@ -19,6 +19,7 @@ export default function CustomerLayout({ children }: { children: React.ReactNode
   const router = useRouter();
 
   const handleLogout = async () => {
+    // In a real app, clear cookies/session
     router.push('/login');
   };
 
@@ -80,7 +81,7 @@ export default function CustomerLayout({ children }: { children: React.ReactNode
                 <DropdownMenuContent align="end" className="w-56">
                   <DropdownMenuLabel>My Account</DropdownMenuLabel>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem className="gap-2"><User className="h-4 w-4" /> Profile</DropdownMenuItem(missing)> Profile</DropdownMenuItem>
+                  <DropdownMenuItem className="gap-2"><User className="h-4 w-4" /> Profile</DropdownMenuItem>
                   <DropdownMenuItem className="gap-2"><Settings className="h-4 w-4" /> Settings</DropdownMenuItem>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem onClick={handleLogout} className="text-destructive gap-2"><LogOut className="h-4 w-4" /> Log out</DropdownMenuItem>
