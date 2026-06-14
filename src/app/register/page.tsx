@@ -42,7 +42,6 @@ export default function RegisterPage() {
         description: "Welcome to LedgeTrack. Redirecting you now...",
       });
 
-      // Redirect based on role
       if (role === 'employee') {
         router.push('/employee/dashboard');
       } else {

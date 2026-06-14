@@ -12,7 +12,6 @@ export default function CustomerDashboard() {
   const [summary, setSummary] = useState<string>("");
   const [loading, setLoading] = useState(true);
 
-  // Mock data for display
   const loanData = {
     customerName: "John Doe",
     principalAmount: 5000,

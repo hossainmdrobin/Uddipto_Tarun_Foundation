@@ -38,7 +38,6 @@ export default function LoginPage() {
         description: "Login successful. Redirecting...",
       });
 
-      // Redirect based on role
       if (data.user.role === 'employee') {
         router.push('/employee/dashboard');
       } else {
