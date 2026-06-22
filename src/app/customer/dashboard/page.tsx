@@ -24,19 +24,19 @@ export default function CustomerDashboard() {
 
   const progress = (loanData.totalPaidAmount / loanData.principalAmount) * 100;
 
-  useEffect(() => {
-    async function fetchAiSummary() {
-      try {
-        const text = await customerLoanDashboardOverview(loanData);
-        setSummary(text);
-      } catch (error) {
-        console.error("AI Summary Error:", error);
-      } finally {
-        setLoading(false);
-      }
-    }
-    fetchAiSummary();
-  }, []);
+  // useEffect(() => {
+  //   async function fetchAiSummary() {
+  //     try {
+  //       const text = await customerLoanDashboardOverview(loanData);
+  //       setSummary(text);
+  //     } catch (error) {
+  //       console.error("AI Summary Error:", error);
+  //     } finally {
+  //       setLoading(false);
+  //     }
+  //   }
+  //   fetchAiSummary();
+  // }, []);
 
   return (
     <div className="space-y-8">

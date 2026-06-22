@@ -16,6 +16,7 @@ export async function POST(request: Request) {
     }
 
     const existingUser = await User.findOne({ email });
+    console.log(existingUser)
     if (existingUser) {
       return NextResponse.json({ message: 'Email already in use' }, { status: 400 });
     }
