@@ -34,7 +34,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button size="lg" className="h-14 px-10 text-lg font-semibold shadow-lg shadow-primary/20" onClick={() => router.push('/register')}>
-              Start Free Trial <ArrowRight className="ml-2 h-5 w-5" />
+              Become a Member <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button size="lg" variant="outline" className="h-14 px-10 text-lg font-semibold bg-white" onClick={() => router.push('/login')}>
               Live Demo
