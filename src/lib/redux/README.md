@@ -1,6 +1,6 @@
 # Redux Setup for `/src/app/app` Directory
 
-This Redux Toolkit and RTK Query setup is **isolated exclusively** to the `/src/app/app` directory (customer and employee dashboards). Other routes remain completely SSR-friendly.
+This Redux Toolkit and RTK Query setup is **isolated exclusively** to the `/src/app/app` directory (member and employee dashboards). Other routes remain completely SSR-friendly.
 
 ## Structure
 

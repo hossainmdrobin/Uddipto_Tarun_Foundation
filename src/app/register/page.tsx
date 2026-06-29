@@ -15,7 +15,7 @@ export default function RegisterPage() {
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [role, setRole] = useState<'customer' | 'employee'>('customer');
+  const [role, setRole] = useState<'member' | 'employee'>('member');
   const [loading, setLoading] = useState(false);
   const router = useRouter();
   const { toast } = useToast();
@@ -43,9 +43,9 @@ export default function RegisterPage() {
       });
 
       if (role === 'employee') {
-        router.push('/employee/dashboard');
+        router.push('/app/employee/dashboard');
       } else {
-        router.push('/customer/dashboard');
+        router.push('/app/customer/dashboard');
       }
     } catch (error: any) {
       toast({
@@ -119,12 +119,12 @@ export default function RegisterPage() {
             </div>
             <div className="space-y-2">
               <Label htmlFor="role">I am a...</Label>
-              <Select onValueChange={(value: any) => setRole(value)} defaultValue="customer">
+              <Select onValueChange={(value: any) => setRole(value)} defaultValue="member">
                 <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select your role" />
                 </SelectTrigger>
                 <SelectContent>
-                  <SelectItem value="customer">Customer</SelectItem>
+                  <SelectItem value="member">Member</SelectItem>
                   <SelectItem value="employee">Employee / Admin</SelectItem>
                 </SelectContent>
               </Select>

@@ -2,10 +2,10 @@
 
 ## Core Features:
 
-- Multi-Role Authentication: Custom JWT-based auth system featuring role-based access for customers and employees with OTP verification via Nodemailer.
-- Customer Financial Portal: Dedicated customer dashboard showing loan summaries, repayment schedules, and transaction history stored in MongoDB.
+- Multi-Role Authentication: Custom JWT-based auth system featuring role-based access for members and employees with OTP verification via Nodemailer.
+- Member Financial Portal: Dedicated member dashboard showing loan summaries, repayment schedules, and transaction history stored in MongoDB.
 - Loan Originator Tool: An AI-powered loan term simulation tool that generates amortized repayment schedules based on principal and interest rates.
-- Enterprise Dashboard: A QuickBooks-inspired interface for employees to manage customers, log payments, and track overdue accounts.
+- Enterprise Dashboard: A QuickBooks-inspired interface for employees to manage members, log payments, and track overdue accounts.
 - Real-time Payment Logging: System to log transactions and automatically update loan statuses and installment schedules within the database.
 - KPI Reporting & Visuals: Analytical view for managers with chart-based insights using Recharts and exportable PDF/CSV reporting.
 - Audit Logging: Back-end tracking of all administrative actions to maintain a transparent history of loan and payment modifications.

@@ -1,7 +1,7 @@
 import mongoose, { Schema, model, models } from 'mongoose';
 
 const LoanSchema = new Schema({
-  customerId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+  memberId: { type: Schema.Types.ObjectId, ref: 'User', required: true },
   principalAmount: { type: Number, required: true },
   interestRate: { type: Number, required: true },
   termMonths: { type: Number, required: true },

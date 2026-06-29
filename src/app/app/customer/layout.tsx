@@ -15,7 +15,7 @@ const navItems = [
   { icon: Settings, label: 'Settings', href: '/customer/settings' },
 ];
 
-export default function CustomerLayout({ children }: { children: React.ReactNode }) {
+export default function MemberLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
 
   const handleLogout = async () => {
@@ -62,7 +62,7 @@ export default function CustomerLayout({ children }: { children: React.ReactNode
           <header className="h-16 border-b bg-white flex items-center justify-between px-6 sticky top-0 z-10">
             <div className="flex items-center gap-4">
               <SidebarTrigger className="md:hidden" />
-              <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider hidden sm:block">Customer Portal</h2>
+              <h2 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider hidden sm:block">Member Portal</h2>
             </div>
             <div className="flex items-center gap-4">
               <button className="p-2 text-muted-foreground hover:bg-slate-100 rounded-full transition-colors relative">

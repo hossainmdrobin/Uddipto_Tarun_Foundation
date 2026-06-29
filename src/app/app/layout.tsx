@@ -9,7 +9,7 @@ interface AppLayoutProps {
 
 /**
  * App Layout
- * Wraps all /app/* routes (customer and employee dashboards) with Redux provider
+ * Wraps all /app/* routes (member and employee dashboards) with Redux provider
  * This keeps Redux isolated to only this directory, keeping other routes SSR-friendly
  */
 export default function AppLayout({ children }: AppLayoutProps) {

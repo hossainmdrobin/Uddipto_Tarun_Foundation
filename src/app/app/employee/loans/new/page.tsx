@@ -13,7 +13,7 @@ import { employeeLoanSummaryGenerator } from '@/ai/flows/employee-loan-summary-g
 
 export default function NewLoanPage() {
   const [formData, setFormData] = useState({
-    customerId: '',
+    memberId: '',
     principal: 1000,
     interest: 5,
     term: 12,
@@ -62,10 +62,10 @@ export default function NewLoanPage() {
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="space-y-2">
-                <Label>Select Customer</Label>
-                <Select onValueChange={(v) => setFormData({ ...formData, customerId: v })}>
+                <Label>Select Member</Label>
+                <Select onValueChange={(v) => setFormData({ ...formData, memberId: v }))}>
                   <SelectTrigger className="h-11">
-                    <SelectValue placeholder="Search existing customer..." />
+                    <SelectValue placeholder="Search existing member..." />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectItem value="1">Sarah Jenkins (sj@example.com)</SelectItem>

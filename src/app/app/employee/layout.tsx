@@ -9,7 +9,7 @@ import { Input } from '@/components/ui/input';
 
 const navItems = [
   { icon: LayoutDashboard, label: 'Dashboard', href: '/employee/dashboard' },
-  { icon: Users, label: 'Customers', href: '/employee/customers' },
+  { icon: Users, label: 'Members', href: '/employee/members' },
   { icon: Landmark, label: 'Loans', href: '/employee/loans' },
   { icon: CreditCard, label: 'Payments', href: '/employee/payments' },
   { icon: PieChart, label: 'Reports', href: '/employee/reports' },
@@ -55,7 +55,7 @@ export default function EmployeeLayout({ children }: { children: React.ReactNode
               <SidebarTrigger className="md:hidden" />
               <div className="relative max-w-md w-full hidden sm:block">
                 <Search className="absolute left-3 top-2.5 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="Search customers, loans..." className="pl-10 bg-slate-50 border-none shadow-none focus-visible:ring-1 focus-visible:ring-accent" />
+                <Input placeholder="Search members, loans..." className="pl-10 bg-slate-50 border-none shadow-none focus-visible:ring-1 focus-visible:ring-accent" />
               </div>
             </div>
             <div className="flex items-center gap-4">

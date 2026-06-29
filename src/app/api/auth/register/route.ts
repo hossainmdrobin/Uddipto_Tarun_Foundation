@@ -27,7 +27,7 @@ export async function POST(request: Request) {
       name,
       email,
       password: hashedPassword,
-      role: role || 'customer',
+      role: role || 'member',
       employeeRole: role === 'employee' ? 'employee' : undefined,
     });
 

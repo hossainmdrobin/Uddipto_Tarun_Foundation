@@ -11,7 +11,7 @@ import { useGetLoansQuery, useGetCurrentUserQuery } from '@/lib/redux';
  * - Fetching loans list
  * - Loading and error states
  * 
- * To use this, import it in your customer dashboard or employee dashboard
+ * To use this, import it in your member dashboard or employee dashboard
  */
 export function DashboardExample() {
   // Fetch current user profile

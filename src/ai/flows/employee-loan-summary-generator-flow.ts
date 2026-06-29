@@ -66,7 +66,7 @@ const prompt = ai.definePrompt({
   name: 'employeeLoanSummaryGeneratorPrompt',
   input: { schema: EmployeeLoanSummaryGeneratorInputSchema },
   output: { schema: EmployeeLoanSummaryGeneratorOutputSchema },
-  prompt: `You are an expert in accounting and financial analysis, specializing in loan repayment schedules. Your task is to provide a clear, concise natural language summary of a loan's terms, its repayment schedule, and key financial implications for a customer.
+  prompt: `You are an expert in accounting and financial analysis, specializing in loan repayment schedules. Your task is to provide a clear, concise natural language summary of a loan's terms, its repayment schedule, and key financial implications for a member.
 
 Given the following loan details:
 Principal Amount: {{{principalAmount}}}
@@ -80,12 +80,12 @@ Repayment Schedule:
 {{/each}}
 
 Please calculate and extract the following:
-1.  **Total Monthly Payment**: The consistent amount the customer pays each month for their installment. Assume all installments have the same 'amount' for this calculation.
+1.  **Total Monthly Payment**: The consistent amount the member pays each month for their installment. Assume all installments have the same 'amount' for this calculation.
 2.  **Total Interest Paid**: The total interest paid over the life of the loan. This is the sum of all installment amounts minus the principal amount.
 3.  **First Due Date**: The date of the very first installment from the repayment schedule.
 4.  **Last Due Date**: The date of the very last installment from the repayment schedule.
 
-Based on these calculations and the loan details, generate a natural language summary that an employee can use to explain the loan terms to a customer. Highlight the monthly payment, total interest, and the start and end dates of the repayment.
+Based on these calculations and the loan details, generate a natural language summary that an employee can use to explain the loan terms to a member. Highlight the monthly payment, total interest, and the start and end dates of the repayment.
 
 The output should strictly adhere to the following JSON schema:
 \`\`\`json

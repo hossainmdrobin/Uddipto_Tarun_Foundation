@@ -27,7 +27,7 @@ Redux Toolkit and RTK Query have been configured exclusively for the `/src/app/a
 
 ## 🚀 How to Use Redux in `/src/app/app` Components
 
-### 1. In Customer Dashboard
+### 1. In Member Dashboard
 ```typescript
 'use client';
 
@@ -76,7 +76,7 @@ import { useAppDispatch, useAppSelector } from '@/lib/redux';
 
 3. **Use the example component** as a template in your dashboard components
 
-4. **Test RTK Query** by importing hooks in customer/employee dashboard pages
+4. **Test RTK Query** by importing hooks in member/employee dashboard pages
 
 ## ⚠️ Important Notes
 

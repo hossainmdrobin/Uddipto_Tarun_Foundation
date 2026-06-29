@@ -44,7 +44,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-32 max-w-6xl w-full">
           {[
-            { icon: Users, title: 'Customer Portal', desc: 'Secure self-service portal for loan tracking and payments.' },
+            { icon: Users, title: 'Member Portal', desc: 'Secure self-service portal for loan tracking and payments.' },
             { icon: Landmark, title: 'Automated Billing', desc: 'Schedules and repayment logic handled automatically.' },
             { icon: PieChart, title: 'AI Insights', desc: 'Advanced analytics powered by GenAI for risk assessment.' }
           ].map((feature, idx) => (
