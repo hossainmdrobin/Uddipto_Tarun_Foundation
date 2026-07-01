@@ -6,14 +6,14 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Progress } from '@/components/ui/progress';
 import { Button } from '@/components/ui/button';
 import { Calendar, ArrowUpRight, Clock, ShieldCheck, Sparkles, Receipt } from 'lucide-react';
-import { customerLoanDashboardOverview } from '@/ai/flows/customer-loan-dashboard-overview-flow';
+import { memberLoanDashboardOverview } from '@/ai/flows/customer-loan-dashboard-overview-flow';
 
-export default function CustomerDashboard() {
+export default function MemberDashboard() {
   const [summary, setSummary] = useState<string>("");
   const [loading, setLoading] = useState(true);
 
   const loanData = {
-    customerName: "John Doe",
+    memberName: "John Doe",
     principalAmount: 5000,
     totalPaidAmount: 1250,
     remainingBalance: 3750,
@@ -27,7 +27,7 @@ export default function CustomerDashboard() {
   // useEffect(() => {
   //   async function fetchAiSummary() {
   //     try {
-  //       const text = await customerLoanDashboardOverview(loanData);
+  //       const text = await memberLoanDashboardOverview(loanData);
   //       setSummary(text);
   //     } catch (error) {
   //       console.error("AI Summary Error:", error);
@@ -42,7 +42,7 @@ export default function CustomerDashboard() {
     <div className="space-y-8">
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-headline font-bold text-primary">Welcome Back, {loanData.customerName}</h1>
+          <h1 className="text-3xl font-headline font-bold text-primary">Welcome Back, {loanData.memberName}</h1>
           <p className="text-muted-foreground mt-1">Here is a summary of your active loan status.</p>
         </div>
         <Button className="bg-accent hover:bg-accent/90">

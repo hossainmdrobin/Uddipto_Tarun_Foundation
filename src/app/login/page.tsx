@@ -39,9 +39,9 @@ export default function LoginPage() {
       });
 
       if (data.user.role === 'employee') {
-        router.push('/employee/dashboard');
+        router.push('/app/employee/dashboard');
       } else {
-        router.push('/customer/dashboard');
+        router.push('/app/customer/dashboard');
       }
     } catch (error: any) {
       toast({

@@ -4,7 +4,7 @@ const UserSchema = new Schema({
   name: { type: String, required: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true },
-  role: { type: String, enum: ['customer', 'employee'], default: 'customer' },
+  role: { type: String, enum: ['member', 'employee'], default: 'member' },
   employeeRole: { type: String, enum: ['admin', 'manager', 'employee'], default: 'employee' },
   profileImage: { type: String, default: '' },
   isVerified: { type: Boolean, default: false },

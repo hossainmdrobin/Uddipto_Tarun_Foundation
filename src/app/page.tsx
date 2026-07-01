@@ -34,7 +34,7 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
             <Button size="lg" className="h-14 px-10 text-lg font-semibold shadow-lg shadow-primary/20" onClick={() => router.push('/register')}>
-              Start Free Trial <ArrowRight className="ml-2 h-5 w-5" />
+              Become a Member <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
             <Button size="lg" variant="outline" className="h-14 px-10 text-lg font-semibold bg-white" onClick={() => router.push('/login')}>
               Live Demo
@@ -44,7 +44,7 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-32 max-w-6xl w-full">
           {[
-            { icon: Users, title: 'Customer Portal', desc: 'Secure self-service portal for loan tracking and payments.' },
+            { icon: Users, title: 'Member Portal', desc: 'Secure self-service portal for loan tracking and payments.' },
             { icon: Landmark, title: 'Automated Billing', desc: 'Schedules and repayment logic handled automatically.' },
             { icon: PieChart, title: 'AI Insights', desc: 'Advanced analytics powered by GenAI for risk assessment.' }
           ].map((feature, idx) => (
