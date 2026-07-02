@@ -8,12 +8,12 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 
 const navItems = [
-  { icon: LayoutDashboard, label: 'Dashboard', href: '/employee/dashboard' },
-  { icon: Users, label: 'Members', href: '/employee/members' },
-  { icon: Landmark, label: 'Loans', href: '/employee/loans' },
-  { icon: CreditCard, label: 'Payments', href: '/employee/payments' },
-  { icon: PieChart, label: 'Reports', href: '/employee/reports' },
-  { icon: Settings, label: 'Settings', href: '/employee/settings' },
+  { icon: LayoutDashboard, label: 'Dashboard', href: '/app/employee/dashboard' },
+  { icon: Users, label: 'Members', href: '/app/employee/members' },
+  { icon: Landmark, label: 'Loans', href: '/app/employee/loans' },
+  { icon: CreditCard, label: 'Payments', href: '/app/employee/payments' },
+  { icon: PieChart, label: 'Reports', href: '/app/employee/reports' },
+  { icon: Settings, label: 'Settings', href: '/app/employee/settings' },
 ];
 
 export default function EmployeeLayout({ children }: { children: React.ReactNode }) {
