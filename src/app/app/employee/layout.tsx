@@ -3,17 +3,18 @@
 
 import { SidebarProvider, Sidebar, SidebarContent, SidebarHeader, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarFooter, SidebarInset, SidebarTrigger } from '@/components/ui/sidebar';
 import { LayoutDashboard, Users, Landmark, CreditCard, PieChart, Settings, LogOut, Search, Bell, User } from 'lucide-react';
+import Link from 'next/link';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Input } from '@/components/ui/input';
 
 const navItems = [
-  { icon: LayoutDashboard, label: 'Dashboard', href: '/employee/dashboard' },
-  { icon: Users, label: 'Members', href: '/employee/members' },
-  { icon: Landmark, label: 'Loans', href: '/employee/loans' },
-  { icon: CreditCard, label: 'Payments', href: '/employee/payments' },
-  { icon: PieChart, label: 'Reports', href: '/employee/reports' },
-  { icon: Settings, label: 'Settings', href: '/employee/settings' },
+  { icon: LayoutDashboard, label: 'Dashboard', href: '/app/employee/dashboard' },
+  { icon: Users, label: 'Members', href: '/app/employee/members' },
+  { icon: Landmark, label: 'Loans', href: '/app/employee/loans' },
+  { icon: CreditCard, label: 'Payments', href: '/app/employee/payments' },
+  { icon: PieChart, label: 'Reports', href: '/app/employee/reports' },
+  { icon: Settings, label: 'Settings', href: '/app/employee/settings' },
 ];
 
 export default function EmployeeLayout({ children }: { children: React.ReactNode }) {
@@ -32,10 +33,10 @@ export default function EmployeeLayout({ children }: { children: React.ReactNode
               {navItems.map((item) => (
                 <SidebarMenuItem key={item.label}>
                   <SidebarMenuButton asChild tooltip={item.label} className="py-6 hover:bg-sidebar-accent transition-colors">
-                    <a href={item.href} className="flex items-center gap-4">
+                    <Link href={item.href} className="flex items-center gap-4">
                       <item.icon className="h-5 w-5" />
                       <span className="font-medium">{item.label}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
