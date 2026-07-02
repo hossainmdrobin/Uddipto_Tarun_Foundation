@@ -5,7 +5,7 @@ import { SidebarProvider, Sidebar, SidebarContent, SidebarHeader, SidebarMenu, S
 import { LayoutDashboard, Landmark, Receipt, HelpCircle, Settings, LogOut, Bell, User } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { useRouter } from 'next/navigation';
+import { useRouter, Link } from 'next/navigation';
 
 const navItems = [
   { icon: LayoutDashboard, label: 'Overview', href: '/customer/dashboard' },
@@ -38,10 +38,10 @@ export default function MemberLayout({ children }: { children: React.ReactNode }
               {navItems.map((item) => (
                 <SidebarMenuItem key={item.label}>
                   <SidebarMenuButton asChild tooltip={item.label} className="py-6 hover:bg-white/10 transition-colors">
-                    <a href={item.href} className="flex items-center gap-4">
+                    <Link href={item.href} className="flex items-center gap-4">
                       <item.icon className="h-5 w-5" />
                       <span className="font-medium">{item.label}</span>
-                    </a>
+                    </Link>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}
